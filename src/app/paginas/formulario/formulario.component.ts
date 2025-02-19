@@ -3,7 +3,8 @@ import { ContainerComponent } from '../../componentes/container/container.compon
 import { SeparadorComponent } from '../../componentes/separador/separador.component';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { ContactosService } from '../../services/contactos.service';
 
 @Component({
   selector: 'app-formulario',
@@ -20,7 +21,9 @@ export class FormularioComponent implements OnInit {
   //forma individual
   //nombre = new FormControl('Barbara');
   contactoForm!: FormGroup;
-  fb = inject(FormBuilder)
+  fb = inject(FormBuilder);
+  contactoService = inject(ContactosService);
+  router = inject(Router);
 
  
 
@@ -53,10 +56,13 @@ export class FormularioComponent implements OnInit {
   } */
 
   guardarContacto(){
-    console.log(this.contactoForm.value);
+    const nuevoContacto = this.contactoForm.value;
+    this.contactoService.guardarContactos(nuevoContacto);
+    this.contactoForm.reset();
+    this.router.navigateByUrl('/lista-contactos')
   }
 
   cancelar(){
-    console.log('cancelar')
+    this.contactoForm.reset();
   }
 }

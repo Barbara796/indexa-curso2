@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Contacto } from '../componentes/contacto/contacto';
 
-interface Contacto{
-  id: number
-  nombre: string
-  telefono: string
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +34,11 @@ export class ContactosService {
 
   obtenerContactos(){
     return this.contactos;
+  }
+
+  guardarContactos(contacto:Contacto){
+    this.contactos.push(contacto);
+    localStorage.setItem('contactos', JSON.stringify(this.contactos))
   }
 }
 

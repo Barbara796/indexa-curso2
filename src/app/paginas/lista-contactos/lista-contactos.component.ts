@@ -7,13 +7,10 @@ import { FormsModule } from "@angular/forms"
 import { Component, inject, OnInit } from "@angular/core"
 import { RouterLink } from "@angular/router"
 import { ContactosService } from "../../services/contactos.service"
+import { Contacto } from "../../componentes/contacto/contacto"
 
 
-interface Contacto{
-  id: number
-  nombre: string
-  telefono: string
-}
+
 
 @Component({
   selector: 'app-lista-contactos',
