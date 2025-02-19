@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ContainerComponent } from '../../componentes/container/container.component';
 import { SeparadorComponent } from '../../componentes/separador/separador.component';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -15,13 +15,33 @@ import { RouterLink } from '@angular/router';
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit {
 
   //forma individual
   //nombre = new FormControl('Barbara');
-  contactoForm: FormGroup;
+  contactoForm!: FormGroup;
+  fb = inject(FormBuilder)
 
-  constructor(){
+ 
+
+  ngOnInit(){
+    this.inicializarForms();
+  }
+
+  inicializarForms(){
+    this.contactoForm = this.fb.group({
+      nombre: ['',Validators.required],
+      telefono: ['', Validators.required],
+      email: ['',[Validators.required,Validators.email]],
+      cumpleano: [''],
+      redes: [''],
+      observaciones: [''],
+    })
+  }
+
+
+  //gestion de forms con formgroup
+  /* inicializarForms(){
     this.contactoForm = new FormGroup({
       nombre: new FormControl('',Validators.required),
       telefono: new FormControl('', Validators.required),
@@ -30,7 +50,7 @@ export class FormularioComponent {
       redes: new FormControl(''),
       observaciones: new FormControl(''),
     })
-  }
+  } */
 
   guardarContacto(){
     console.log(this.contactoForm.value);

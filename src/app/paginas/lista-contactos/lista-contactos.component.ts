@@ -4,9 +4,9 @@ import { ContainerComponent } from "../../componentes/container/container.compon
 import { EncabezadoComponent } from "../../componentes/encabezado/encabezado.component"
 import { SeparadorComponent } from "../../componentes/separador/separador.component"
 import { FormsModule } from "@angular/forms"
-import { Component } from "@angular/core"
-import agenda from '../../agenda.json'
+import { Component, inject, OnInit } from "@angular/core"
 import { RouterLink } from "@angular/router"
+import { ContactosService } from "../../services/contactos.service"
 
 
 interface Contacto{
@@ -29,13 +29,21 @@ interface Contacto{
   templateUrl: './lista-contactos.component.html',
   styleUrl: './lista-contactos.component.css'
 })
-export class ListaContactosComponent {
+export class ListaContactosComponent implements OnInit {
 
   alfabeto: string = "abcdefghijklmnñopqrstuvwxy";
-  contactos: Contacto[] = agenda;
-  filtroTexto:string = ''
+  contactos: Contacto[] = [];
+  filtroTexto:string = '';
+  contactoService = inject(ContactosService);
 
 
+ /*  constructor(private contactoService: ContactosService){
+
+  } */
+
+  ngOnInit(){
+    this.contactos = this.contactoService.obtenerContactos();
+  }
 
   filtrarContactosPorTexto(): Contacto[] {
     if (!this.filtroTexto) {
