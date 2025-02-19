@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import agenda from './agenda.json'
 import { FormsModule } from '@angular/forms';
+import { FormularioComponent } from './paginas/formulario/formulario.component';
 
 interface Contacto{
   id: number
@@ -24,7 +25,8 @@ interface Contacto{
             SeparadorComponent,
             ContactoComponent,
             CommonModule,
-            FormsModule
+            FormsModule,
+            FormularioComponent
           ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

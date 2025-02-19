@@ -1,0 +1,48 @@
+<app-container>
+    <header>
+        <section class="encabezado-link">
+            <img src="logo.png" alt="">
+        </section>
+        <section class="encabezado-contacto">
+            <img src="agregar-contacto.png" alt="">
+            <h1> Agregar nuevo contacto</h1>
+        </section>
+    </header>
+    <form >
+        <label for="nombre">Nombre</label>
+        <input 
+            type="text"
+            id="nombre"
+            placeholder="Digita el nombre del contacto">
+        <label for="telefono">Telefono</label>
+        <input 
+            type="text"
+            id="telefono"
+            placeholder="Digita el telefono del contacto">
+        <label for="email">Email</label>
+        <input 
+            type="email"
+            id="email"
+            placeholder="Digita el email del contacto">
+            <app-separador></app-separador>
+            <label for="cumpleano">Cumpleaño</label>
+            <input 
+                type="date"
+                id="cumpleano"
+                placeholder="Digita la fecha de nacimiento del contacto">
+            <label for="redes">Redes sociales</label>
+            <div class="input-container ">
+                <span class="span-http">http://</span>
+                <input type="text">
+            </div>
+            
+        <label for="observaciones">Observaciones</label>
+        <textarea name="observaciones" id="observaciones"></textarea>
+
+        <section class="botones">
+
+            <button class="boton-cancelar" type="button">Cancelar</button>
+            <button type="submit" class="boton-guardar"> Guardar contacto</button>
+        </section>
+    </form>
+</app-container>
