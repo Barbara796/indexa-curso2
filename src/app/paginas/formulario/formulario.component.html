@@ -2,6 +2,12 @@
     <header>
         <section class="encabezado-link">
             <img src="logo.png" alt="">
+            <div>
+                <button>
+                  <img src="arrow-left.svg" alt="">
+                  <a routerLink="/lista-contactos">Regresar</a>
+                </button>
+              </div>
         </section>
         <section class="encabezado-contacto">
             <img src="agregar-contacto.png" alt="">
@@ -74,7 +80,10 @@
         <section class="botones">
 
             <button (click)="cancelar()" class="boton-cancelar" type="button">Cancelar</button>
-            <button type="submit" class="boton-guardar"> Guardar contacto</button>
+            <button 
+                type="submit"
+                [disabled]="contactoForm.invalid"
+                [ngClass]="contactoForm.valid ?'boton-guardar':'boton-deshabilitado'"> Guardar contacto</button>
         </section>
     </form>
 </app-container>
