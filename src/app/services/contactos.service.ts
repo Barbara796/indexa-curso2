@@ -12,11 +12,11 @@ import { Contacto } from '../componentes/contacto/contacto';
 export class ContactosService {
 
   contactos: Contacto[] = [
-    {"id": 1, "nombre": "Ana", "telefono": "29 278869420"},
-    {"id": 2, "nombre": "Antonio", "telefono": "38 128451235"},
-    {"id": 3, "nombre": "Angela", "telefono": "38 128451235"},
-    {"id": 4, "nombre": "Bruno", "telefono": "95 695521583"},
-    {"id": 5, "nombre": "Beatriz", "telefono": "25 854986459"}
+    {"id": 1, "nombre": "Ana", "telefono": "29 278869420", "email":"ana@gmail.com"},
+    {"id": 2, "nombre": "Antonio", "telefono": "38 128451235", "email":"antonio@gmail.com"},
+    {"id": 3, "nombre": "Angela", "telefono": "38 128451235", "email":"angela@gmail.com"},
+    {"id": 4, "nombre": "Bruno", "telefono": "95 695521583", "email":"bruno@gmail.com"},
+    {"id": 5, "nombre": "Beatriz", "telefono": "25 854986459", "email":"beatriz@gmail.com"}
   ]
 
   constructor() { 
